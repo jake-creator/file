@@ -1,0 +1,267 @@
+<main class="panels">
+
+  <section>Panel 2</section>
+  <section>Panel 3</section>
+  <section>Panel 4</section>
+</main>
+
+<section class="result">Sample</section>
+
+<style>
+
+body {
+  font-family: "Century Gothic", sans-serif;
+  font-size: 1.3rem;
+  line-height: 80px;
+  text-align: center;
+  color: white;
+}
+
+main {
+  width: 50%;
+  margin: 20px auto 0 auto;
+}
+
+.panels section {
+  background-color: darkslateblue;
+  margin-bottom: 5px;
+}
+
+.result {
+  box-sizing: border-box;
+  height: auto;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: salmon;
+  line-height: 110%;
+  padding: 30px;
+}
+
+
+</style>
+
+<script> // In codepen the code is executed under the JS Banner. The Script tag is a reference. Thus, not requiring the usage of the script tag in Codepen.
+/*
+Question #1: 
+
+Using jQuery, add 2 new panels, one at the top and the other at the bottom and number them properly for the user.
+
+*/
+
+$("section").css("background", "darkslateblue")    // Previous attempts by coder are commented with Javascript in each numbered question.               
+.add("section")                                    // Number one is successfully debugged. But, appreciate another set of eyes to verify.
+.css("background", "darkslateblue");               // The questions are sample excersises.
+
+$("section").css("background", "darkslateblue")
+.add("section")
+.css("background", "darkslateblue");
+
+$( "section" ).add( "section" ).css( "background", "darkslateblue" );
+
+$( "section" ).add( "section" ).css( "background", "darkslateblue" );
+
+$( "main" ).prepend( "<section>Panel 1</section>" ).appendTo( document.body );
+
+$( "main" ).append( "<section>Panel 5</section>" ).appendTo( document.body );
+
+
+
+// $( "main" ).clone().add( "<section>panel5</section>" ).appendTo( document.body );
+
+// $( "main" ).add( "<section>panel1</section>"  ).appendTo( document.body );
+
+// $( "main" ).add( "<section>panel5</section>" ).appendTo( document.body );
+
+
+
+// $("#main").add(" <section> panel 1</section>");
+// $("#main").add(" <section> panel 5</section>");
+
+
+
+// function appendMain() {
+  
+//   var main1 = $("<section>panel.</section>");        // Create text with HTML
+//   var main2 = $("<section>panel.</section>").main("Main.");  // Create text with jQuery
+//   var main3 = $document.createElement("main");
+//   main3.innerHTML = "Main.";         // Create text with DOM
+//   $("section").append(main1, main2, main3);   // Append new elements
+ 
+// }
+
+
+
+/*
+Question #2: 
+
+Using plain JS (aka, vanilla JS), rename all panels to boards (eg, panel 1 becomes board 1). Use an arrow function in your solution as well.
+
+Hint: use array method .forEach() and string method .replace() and the DOM property innerHTML. Note you have to assign the innerHTML to the new value, eg: 
+   element.innerHTML =  "new inner html" 
+*/
+
+// const search = "panel";
+// const replaceWith = 'board';
+
+// const result = 'panel booard'.split(search).join(replaceWith);   // Question two requires debugging.
+
+
+// var re = /panel/gi;
+// var str = "panel";
+// var newstr = str.replace(re, "board");
+
+// document.write(newstr);
+
+// function myFunction() {
+  
+// var str = document.getElementById("section").innerHTML;
+// var res = str.replace(/Panel/g, "Board");
+  
+// document.getElementById("section").innerHTML = res;
+// }
+
+
+// const boards = ['Board 1', 'Board 2', 'Board 3'];
+
+// boards.forEach(element => console.log(element));
+
+
+
+const sections = document.querySelectorAll("section");
+
+const board = document.querySelector("board");          
+const line  = document.querySelector("line");           
+const array = document.querySelector ("array");
+const straight = document.querySelector("straight");
+const brees = docuemnt.querySelector("brees");
+
+sections.forEach(panel=> panel.style.backgroundColor = "darkslateblue");
+
+
+sections[1].style.backgroundColor = "darkslateblue";
+sections[2].style.backgroundColor = "darkslateblue";
+sections[3].style.backgroundColor = "darkslateblue";
+sections[4].style.backgroundColor = "darkslateblue";
+sections[5].style.backgroundColor = "darkslateblue";
+
+console.log(section.style.backgroundColor);
+
+
+
+
+// /*
+// Question #3: 
+
+// Starting with jQuery, get board #5 and store it into a variable. Then get the DOM Element as pure JS out from the jQuery collection (eg, convert $board5 to board5 as plain JS). Then change the background color of board #5 to orange.
+
+// */
+
+// const $board5 = $("section:first-child");  // Question three requires debugging.
+// board1.on("click", function(){
+// $(this).css({backgroundColor: "orange"});
+// });
+
+// $board = $("board");
+// $board5.remove();
+
+// $board.prepend("<board> 5</board>");
+
+
+// var
+//   $board = $( '.board' ),
+//   $board1  = $board.find( '.board' ),
+//   $board2  = $( '.board', $board ),
+//   $board3  = $( '.board' );
+
+// // append elements to the container
+// for( i=0; i<10; ++i ){
+//   $container.append( $(board_html) );  
+// }
+
+// // this works
+// console.log( "1: " + $container.find( '.element' ).length );
+// console.log( "2: " + $( '.board', $container )  .length );
+// console.log( "3: " + $( '.board' )              .length );
+
+
+
+/*
+Question #4: 
+
+Using the MVC architecture (model, viewer, controller), create an application that will recolor every other board (fka panel) as darkturquoise or red, recolor only the even indexed panels counting from 0 (or odd numbered panels from the user's perspective). 
+
+Details: 
+1. create a data model for the color of every board (this is a single variable called model). A variable can be initiatlized to an empty array like this: model = [];
+2. name your execute function reColor() and make sure it calls sub-functions for each user story as follows:
+3. create initModel() to initiatlize your data model to the all "darkslateblue". You can get the number of panels or boards like this: $(".panels section").length;
+4. create a getUserColor() function and use prompt() ask the user to choose either darkturquoise or red, and ensure that you convert the answer to lowercase and make sure it works, even with spelling mistakes, and that you get the right answer (or a default answer)
+5. create an updateModel() function to revise the data model based on the user input
+6. create an updateView() function to revise the DOM (the screen) to the new color scheme based upon the model. NOTE: updateView is the ONLY method that updates the screen (the DOM).
+7. ONLY use 1 global variable, your data model
+
+Hints: 
+1. use forEach() with an arrow function to cycle through your model. The optional 2nd arrow function parameter is the index of each element. A ternary (inline if statement) can be used to determine odd/even: (i % 2 > 0) ? "odd result" : "even result" // where i is the index
+2. the first character of a string can be accessed like an array: string[0]
+3. you can index a jQuery collection using the .eq() method to get an element at a particular index
+
+*/
+
+// window.onload = getUserColor;    // Question four requires debugging.
+
+// function colors() {
+// generateUserColor();
+// handleColorClick();
+// }
+
+// function generateColors(){
+// const swap = doucment.querySelector(".swap");
+  
+//  colors.forEach(color => swap.innerHTML += `<main class = "swap" name=${color.name} src=${color.panel}>`);
+// }
+
+// function handleColorClick() {
+//   document.querySelectorAll(".swap").forEach(color => color.onclick = function(){ alert(this.name); });
+// }
+
+// const getUserColor = function(){
+// return prompt("what's your favorite color?"); };
+
+// let color = "Get user color" + getUserColor();
+
+// console.log(color);
+
+
+// Uncomment this self-invoking function to run your application (do not delete)
+// (function(){ setTimeout(reColor, 1000); })();
+
+
+
+
+/*
+Question #5: 
+
+Add this HTML after the main tag:
+<section class="result">Congratulations for finishing your final exam!</section>
+
+Hints: 
+1. See jQuery .after() method
+2. Use a template literal
+
+*/
+
+// Do not delete this variable  // Question five requires debugging. 
+const msg = "Sample!";
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
